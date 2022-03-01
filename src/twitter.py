@@ -4,7 +4,7 @@ import time
 
 import requests
 
-from src.process import process
+from process import process
 
 TwitterBearerToken = os.environ["TWITTER_BEARER_TOKEN"]
 StreamAPIURL = "https://api.twitter.com/2/tweets/search/stream"

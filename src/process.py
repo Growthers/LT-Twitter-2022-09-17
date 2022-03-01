@@ -1,4 +1,4 @@
-from src.sending import to_discord
+from sending import to_discord
 
 
 def process(tweet_data: dict) -> None:
