@@ -3,9 +3,11 @@ import os
 import time
 
 import requests
+from dotenv import load_dotenv
 
 from process import process
 
+load_dotenv()
 TwitterBearerToken = os.environ["TWITTER_BEARER_TOKEN"]
 StreamAPIURL = "https://api.twitter.com/2/tweets/search/stream"
 
