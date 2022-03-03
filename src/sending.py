@@ -13,4 +13,7 @@ def to_discord(message: str, webhook: str = DISCORD_WEBHOOK_URL) -> None:
 
     data = {"content": message}
 
-    requests.post(webhook, data=data)
+    try:
+        requests.post(webhook, data=data)
+    except Exception:
+        pass
