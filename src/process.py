@@ -1,6 +1,6 @@
 import json
 
-from sending import to_discord
+# from sending import to_discord
 from websocket_connection import ws
 
 
@@ -11,8 +11,8 @@ def process(tweet_data: dict) -> None:
 
     username = user["username"]
 
-    tweet_url = f"https://twitter.com/{username}/status/{data['id']}"
-    to_discord(tweet_url)
+    # tweet_url = f"https://twitter.com/{username}/status/{data['id']}"
+    # to_discord(tweet_url)
 
     isRT = False
 
@@ -25,5 +25,14 @@ def process(tweet_data: dict) -> None:
 
     text = data["text"]
 
-    sending_data = {"id": username, "name": user["name"], "content": text}
+    sending_data = {
+        "type": "COMMENTS",
+        "payload": {
+            "platform": "twitter",
+            "name": f"{user['name']}(@{username})",
+            "iconUrl": user["profile_image_url"],
+            "content": text,
+        },
+    }
+    print(sending_data)
     ws.send(json.dumps(sending_data))

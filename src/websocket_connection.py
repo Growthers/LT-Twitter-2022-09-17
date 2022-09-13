@@ -1,7 +1,9 @@
 import os
 
 import websocket
+from dotenv import load_dotenv
 
+load_dotenv()
 WEBSOCKET_URI = os.environ["WEBSOCKET_URI"]
 
 
